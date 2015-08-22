@@ -1,5 +1,6 @@
 package com.example.android.magicgamecounter;
 
+import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -14,6 +15,9 @@ public class MainActivity extends ActionBarActivity {
     public static final int ONE = 1;
     public static final String PLAYER1 = "player_1_total";
     public static final String PLAYER2 = "player_2_total";
+    public static final String RED = "#F44336";
+    public static final String YELLOW = "#FFCA28";
+    public static final String BLACK = "#000000";
 
     // Instance variables
     int player_1_total = 20;
@@ -84,8 +88,6 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
-
-
     /**
      * Reset the life totals of all players and update the view.
      * @param view
@@ -142,6 +144,16 @@ public class MainActivity extends ActionBarActivity {
         // get id for given player
         int resID = getResources().getIdentifier(player, "id", getPackageName());
         TextView scoreView = (TextView) findViewById(resID);
+        // change color based on life total
+        String setColor;
+        if (score <= 5 && score > 0) {
+            setColor = YELLOW;
+        } else if (score <= 0) {
+            setColor = RED;
+        } else {
+            setColor = BLACK;
+        }
         scoreView.setText(String.valueOf(score));
+        scoreView.setTextColor(Color.parseColor(setColor));
     }
 }
