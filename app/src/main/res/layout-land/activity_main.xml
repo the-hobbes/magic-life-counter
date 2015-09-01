@@ -1,0 +1,139 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:paddingBottom="10dp">
+
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            tools:context=".MainActivity"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Player 1"
+                android:textSize="15sp"
+                android:textColor="#616161"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center_horizontal"
+                android:padding="4dp"/>
+
+            <TextView
+                android:id="@+id/player_1_total"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="20"
+                android:textSize="56sp"
+                android:textColor="#000000"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center_horizontal"
+                android:padding="2dp"
+                android:layout_marginBottom="4dp"/>
+
+            <Button
+                android:id="@+id/incrementButtonPlayer1ByOne"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="+1 Point"
+                android:layout_margin="4dp"
+                android:onClick="lifeChangeHandler"/>
+
+            <Button
+                android:id="@+id/decrementButtonPlayer1ByOne"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="-1 Point"
+                android:layout_margin="4dp"
+                android:onClick="lifeChangeHandler"/>
+
+            <Button
+                android:id="@+id/decrementButtonPlayer1ByFive"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="-5 Points"
+                android:layout_margin="4dp"
+                android:onClick="lifeChangeHandler"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:background="@android:color/darker_gray"
+            android:layout_marginTop="10dp"/>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            tools:context=".MainActivity"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Player 2"
+                android:textSize="15sp"
+                android:textColor="#616161"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center_horizontal"
+                android:padding="4dp"/>
+
+            <TextView
+                android:id="@+id/player_2_total"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="20"
+                android:textSize="56sp"
+                android:textColor="#000000"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center_horizontal"
+                android:padding="2dp"
+                android:layout_marginBottom="4dp"/>
+
+            <Button
+                android:id="@+id/incrementButtonPlayer2ByOne"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="+1 Point"
+                android:layout_margin="4dp"
+                android:onClick="lifeChangeHandler"/>
+
+            <Button
+                android:id="@+id/decrementButtonPlayer2ByOne"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="-1 Point"
+                android:layout_margin="4dp"
+                android:onClick="lifeChangeHandler"/>
+
+            <Button
+                android:id="@+id/decrementButtonPlayer2ByFive"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="-5 Points"
+                android:layout_margin="4dp"
+                android:onClick="lifeChangeHandler"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/resetButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reset"
+        android:onClick="resetHandler"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="170dp"/>
+
+</RelativeLayout>
