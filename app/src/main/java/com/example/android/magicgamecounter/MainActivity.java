@@ -1,6 +1,8 @@
 package com.example.android.magicgamecounter;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -24,6 +26,9 @@ public class MainActivity extends ActionBarActivity {
     int player_1_total = 20;
     int player_2_total = 20;
 
+    // State variables
+    public static final String STATE_NAME = "saved_state";
+    public SharedPreferences savedState;
 
     /**
      * Fires when app starts up.
@@ -33,6 +38,14 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        savedState = getSharedPreferences(STATE_NAME, Context.MODE_PRIVATE);
+        if (savedState.getInt(PLAYER1, -1) == -1 || savedState.getInt(PLAYER2, -1) == -1) {
+            SharedPreferences.Editor editor = getSharedPreferences(STATE_NAME, MODE_PRIVATE).edit();
+            editor.putInt(PLAYER1, player_1_total);
+            editor.putInt(PLAYER2, player_2_total);
+            editor.commit();
+        }
     }
 
     /**
@@ -156,5 +169,29 @@ public class MainActivity extends ActionBarActivity {
         }
         scoreView.setText(String.valueOf(score));
         scoreView.setTextColor(Color.parseColor(setColor));
+    }
+
+    @Override
+    public void onPause() {
+        // save score
+        super.onPause();
+
+        SharedPreferences.Editor editor = getSharedPreferences(STATE_NAME, MODE_PRIVATE).edit();
+        editor.putInt(PLAYER1, player_1_total);
+        editor.putInt(PLAYER2, player_2_total);
+        editor.commit();
+    }
+
+    @Override
+    public void onResume() {
+        // retrieve score
+        super.onResume();
+
+        SharedPreferences savedState = getSharedPreferences(STATE_NAME, MODE_PRIVATE);
+        player_1_total = savedState.getInt(PLAYER1, -1);
+        player_2_total = savedState.getInt(PLAYER2, -1);
+
+        displayForPlayer(PLAYER1, player_1_total);
+        displayForPlayer(PLAYER2, player_2_total);
     }
 }
