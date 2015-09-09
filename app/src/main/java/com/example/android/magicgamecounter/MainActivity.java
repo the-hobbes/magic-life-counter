@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
+import android.os.Vibrator;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -157,13 +158,17 @@ public class MainActivity extends ActionBarActivity {
     private void displayForPlayer(String player, int score) {
         // get id for given player
         int resID = getResources().getIdentifier(player, "id", getPackageName());
+        Vibrator v = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
+
         TextView scoreView = (TextView) findViewById(resID);
         // change color and vibration based on life total
         String setColor;
         if (score <= 5 && score > 0) {
             setColor = YELLOW;
+            v.vibrate(500);
         } else if (score <= 0) {
             setColor = RED;
+            v.vibrate(500);
         } else {
             setColor = BLACK;
         }
