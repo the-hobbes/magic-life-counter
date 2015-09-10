@@ -6,13 +6,13 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="Magic Life Counter"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
+        <uses-sdk android:minSdkVersion="5" android:targetSdkVersion="16" />
         <activity
             android:name=".MainActivity"
             android:label="Magic Life Counter" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <action android:targetSdkVersion="14"/>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
