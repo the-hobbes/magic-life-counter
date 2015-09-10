@@ -7,7 +7,6 @@
         android:icon="@mipmap/ic_launcher"
         android:label="Magic Life Counter"
         android:theme="@style/AppTheme">
-        <uses-sdk android:minSdkVersion="5" android:targetSdkVersion="16" />
         <activity
             android:name=".MainActivity"
             android:label="Magic Life Counter" >
