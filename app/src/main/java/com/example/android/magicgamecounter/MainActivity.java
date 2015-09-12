@@ -151,11 +151,18 @@ public class MainActivity extends ActionBarActivity {
     }
 
     /**
+     * Overload the test method so it is called with a default parameter.
+     */
+    private void displayForPlayer(String player, int score) {
+        displayForPlayer(player, score, true);
+    }
+
+    /**
      * Displays the given score for a given player.
      * @param player
      * @param score
      */
-    private void displayForPlayer(String player, int score) {
+    private void displayForPlayer(String player, int score, boolean shouldVibrate) {
         // get id for given player
         int resID = getResources().getIdentifier(player, "id", getPackageName());
         Vibrator v = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
@@ -165,10 +172,14 @@ public class MainActivity extends ActionBarActivity {
         String setColor;
         if (score <= 5 && score > 0) {
             setColor = YELLOW;
-            v.vibrate(500);
+            if (shouldVibrate){
+                v.vibrate(250);
+            }
         } else if (score <= 0) {
             setColor = RED;
-            v.vibrate(500);
+            if (shouldVibrate){
+                v.vibrate(250);
+            }
         } else {
             setColor = BLACK;
         }
@@ -196,7 +207,7 @@ public class MainActivity extends ActionBarActivity {
         player_1_total = savedState.getInt(PLAYER1, -1);
         player_2_total = savedState.getInt(PLAYER2, -1);
 
-        displayForPlayer(PLAYER1, player_1_total);
-        displayForPlayer(PLAYER2, player_2_total);
+        displayForPlayer(PLAYER1, player_1_total, false);
+        displayForPlayer(PLAYER2, player_2_total, false);
     }
 }
