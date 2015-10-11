@@ -103,6 +103,19 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
+    public void player1EditTextHandler(View view) {
+        // TODO(pheven): make this method generic for both players
+        int textViewID = view.getId();
+        // TODO(pheven): make the player_1_edit_text string a constant
+        int editViewID = getResources().getIdentifier("player_1_edit_text", "id", getPackageName());
+        findViewById(textViewID).setVisibility(View.GONE);
+        findViewById(editViewID).setVisibility(View.VISIBLE);
+
+        // TODO(pheven): show soft keyboard automatically, and add save option to it.
+    }
+
+
+
     /**
      * Reset the life totals of all players and update the view.
      * @param view

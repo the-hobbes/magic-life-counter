@@ -18,9 +18,23 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/player_1_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Player 1"
+                android:textSize="15sp"
+                android:textColor="#616161"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center_horizontal"
+                android:padding="16dp"
+                android:onClick="player1EditTextHandler"/>
+
+            <EditText
+                android:id="@+id/player_1_edit_text"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dickbat"
                 android:textSize="15sp"
                 android:textColor="#616161"
                 android:fontFamily="sans-serif-medium"
