@@ -111,7 +111,8 @@ public class MainActivity extends ActionBarActivity {
         findViewById(textViewID).setVisibility(View.GONE);
         findViewById(editViewID).setVisibility(View.VISIBLE);
 
-        // TODO(pheven): show soft keyboard automatically, and add save option to it.
+        // TODO(pheven): handle user pressing enter or clicking done checkbox in keyboard.
+        // http://stackoverflow.com/questions/8063439/android-edittext-finished-typing-event
     }
 
 
